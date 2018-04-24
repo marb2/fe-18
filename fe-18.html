@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>fe-18</title>
+        <style>
+            @keyframes anim {
+            from {
+                opacity:0.1;
+            }
+            to {
+                font-size: 1.5em;
+                opacity:1;
+                color:red;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <form id="forma" onsubmit="return funkcija()">
+            <label for="slaptazodis1">Naujas slaptažodis</label>
+            <input name="slp1" type="password" id="slaptazodis1">
+            <label for="slaptazodis2">Pakartotinai suvestas naujas slaptažodis</label>
+            <input name="slp2" type="password" id="slaptazodis2">
+            <input type="submit" value="Keisti">
+
+        </form>
+        <div id="zinute"></div>
+        <script>
+            function funkcija() {
+                if (document.forms['forma']['slp1'].value == document.forms['forma']['slp2'].value) {
+                document.getElementById("zinute").innerHTML=("Slaptažodis keičiamas...");
+                document.getElementById("zinute").style.animation = "anim 6s infinite"; 
+                }
+                else {
+                document.getElementById("zinute").innerHTML=("Slaptažodžiai nesutampa - pakartokite dar kartą.");
+                document.getElementById("zinute").style.animation = "none";
+                }
+                return false;
+            }
+        </script>
+    </body>
+</html>
